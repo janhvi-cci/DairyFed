@@ -42,12 +42,22 @@
     navToggle.addEventListener("click", function () {
       var isOpen = navMenu.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
     });
     navMenu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         navMenu.classList.remove("is-open");
         navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open navigation menu");
       });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+        navMenu.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open navigation menu");
+        navToggle.focus();
+      }
     });
   }
 
