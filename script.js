@@ -403,4 +403,20 @@
       t = setTimeout(function () { fn.apply(ctx, args); }, wait);
     };
   }
+
+  /* ============================================================
+     DairyFed Assistant: load shared browser-only chatbot modules
+     ============================================================ */
+  (function loadDairyFedAssistant() {
+    var base = page === "home" ? "" : "../";
+    var files = ["dairyfedKnowledge.js", "dairyfedChatEngine.js", "dairyfedChatbot.js"];
+    function loadNext(index) {
+      if (index >= files.length) return;
+      var script = document.createElement("script");
+      script.src = base + files[index];
+      script.onload = function () { loadNext(index + 1); };
+      document.body.appendChild(script);
+    }
+    loadNext(0);
+  })();
 })();
