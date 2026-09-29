@@ -450,7 +450,7 @@ button {
 
 .problem-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 14px;
 }
 .problem-grid li {
@@ -791,7 +791,7 @@ button {
    ============================================================ */
 .engine-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 22px;
   margin-top: 44px;
 }
@@ -943,7 +943,7 @@ button {
    ============================================================ */
 .value-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 22px;
   margin-top: 40px;
 }
@@ -1098,7 +1098,7 @@ button {
 
 .growth-charts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 22px;
 }
 .growth-chart {
@@ -1318,7 +1318,7 @@ button {
    ============================================================ */
 .forms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 26px;
   margin-top: 44px;
 }
@@ -1508,7 +1508,7 @@ button {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   .nav {
     position: relative;
   }
@@ -1580,8 +1580,49 @@ button {
 }
 
 @media (max-width: 640px) {
+  .container {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
   .section {
-    padding: 60px 0;
+    padding: 52px 0;
+  }
+  .hero {
+    padding: 64px 0 44px;
+  }
+  .hero__headline {
+    max-width: none;
+    font-size: 2rem;
+  }
+  .hero__headline br {
+    display: none;
+  }
+  .hero__sub,
+  .section__lede {
+    font-size: 1rem;
+  }
+  .dash-card,
+  .roadmap__panels,
+  .form-card {
+    padding: 22px;
+  }
+  .transition-banner {
+    padding: 24px 18px;
+  }
+  .transition-banner p {
+    font-size: 1.2rem;
+  }
+  .hierarchy__box {
+    max-width: 100%;
+    padding: 14px 18px;
+  }
+  .donut {
+    width: min(260px, 72vw);
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .table-scroll {
+    -webkit-overflow-scrolling: touch;
   }
   .journey__list {
     grid-template-columns: 1fr 1fr;
@@ -1612,7 +1653,10 @@ button {
   }
   .hero__ctas {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+  .hero__ctas .btn {
+    justify-content: center;
   }
 }
 
